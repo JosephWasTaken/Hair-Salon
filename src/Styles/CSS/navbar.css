@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css?family=Revalia&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Cabin&display=swap");
+@keyframes shine {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    left: 92%;
+    opacity: 0;
+  }
+}
+@keyframes waviy {
+  50% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(45deg) translateX(30vw);
+  }
+}
+@keyframes character-move {
+  from {
+    left: -35%;
+  }
+  to {
+    left: -12%;
+  }
+}
+@keyframes character-move2 {
+  from {
+    left: -20%;
+  }
+  to {
+    left: -10%;
+  }
+}
+@keyframes price-color {
+  from {
+    color: rgb(255, 244, 87);
+  }
+  to {
+    color: rgba(110, 255, 214, 0.767);
+  }
+}
+@keyframes Right {
+  50% {
+    transform: translateX(80vw);
+  }
+}
+@keyframes Left {
+  50% {
+    transform: translateX(-80vw);
+  }
+}
+* {
+  color: white;
+  margin: 0;
+  scroll-behavior: smooth;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-size: 1.6vw;
+}
+
+#navbar,
+#topwrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  width: 100vw;
+  height: 5vw;
+  gap: 3.3vw;
+  background-color: rgb(30, 30, 30);
+  z-index: 15;
+}
+
+#topwrapper {
+  width: 100vw;
+  height: 2.2vw;
+  transition: top 1s ease;
+  position: fixed;
+  top: -100%;
+  background-color: rgb(26, 25, 25);
+}
+
+.link {
+  font-family: "Aldrich";
+  font-size: 2vw;
+  transition: all 0.25s ease;
+  position: relative;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.link:hover {
+  color: rgba(110, 255, 214, 0.767);
+}
+.link:hover::before {
+  animation: shine 0.6s;
+}
+
+.wavyTitle span {
+  font-family: "Revalia";
+  font-size: 4vw;
+  transition: all 1s ease;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#wave1 {
+  background: linear-gradient(to right, rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767), rgba(110, 255, 214, 0.767), white);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.wavyTitle:hover #wave1 {
+  animation: waviy 1s 0.1s;
+}
+
+#wave2 {
+  background: linear-gradient(to right, rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767), rgba(110, 255, 214, 0.767), white);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.wavyTitle:hover #wave2 {
+  animation: waviy 1s 0.2s;
+}
+
+#wave3 {
+  background: linear-gradient(to right, rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767), rgba(110, 255, 214, 0.767), white);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.wavyTitle:hover #wave3 {
+  animation: waviy 1s 0.3s;
+}
+
+#wave4 {
+  background: linear-gradient(to right, rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767), rgba(110, 255, 214, 0.767), white);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.wavyTitle:hover #wave4 {
+  animation: waviy 1s 0.4s;
+}
+
+#wave5 {
+  background: linear-gradient(to right, rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767), rgba(110, 255, 214, 0.767), white);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.wavyTitle:hover #wave5 {
+  animation: waviy 1s 0.5s;
+}
+
+#wave6 {
+  background: linear-gradient(to right, rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767), rgba(110, 255, 214, 0.767), white);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.wavyTitle:hover #wave6 {
+  animation: waviy 1s 0.6s;
+}
+
+#wave7 {
+  background: linear-gradient(to right, rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767), rgba(110, 255, 214, 0.767), white);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.wavyTitle:hover #wave7 {
+  animation: waviy 1s 0.7s;
+}
+
+#wave8 {
+  background: linear-gradient(to right, rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767), rgba(110, 255, 214, 0.767), white);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.wavyTitle:hover #wave8 {
+  animation: waviy 1s 0.8s;
+}
+
+#wave9 {
+  background: linear-gradient(to right, rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767), rgba(110, 255, 214, 0.767), white);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.wavyTitle:hover #wave9 {
+  animation: waviy 1s 0.9s;
+}
+
+#wave10 {
+  background: linear-gradient(to right, rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767), rgba(110, 255, 214, 0.767), white);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.wavyTitle:hover #wave10 {
+  animation: waviy 1s 1s;
+}
+
+.link::before {
+  width: 2vw;
+  height: 100%;
+  position: absolute;
+  transform: skewX(-25deg);
+  top: 0;
+  left: 4%;
+  opacity: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  content: "";
+}/*# sourceMappingURL=navbar.css.map */

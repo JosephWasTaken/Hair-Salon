@@ -1,0 +1,1015 @@
+@import url("https://fonts.googleapis.com/css?family=Revalia&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Aldrich&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Cabin&display=swap");
+@keyframes shine {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    left: 92%;
+    opacity: 0;
+  }
+}
+@keyframes waviy {
+  50% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(45deg) translateX(30vw);
+  }
+}
+@keyframes character-move {
+  from {
+    left: -35%;
+  }
+  to {
+    left: -12%;
+  }
+}
+@keyframes character-move2 {
+  from {
+    left: -20%;
+  }
+  to {
+    left: -10%;
+  }
+}
+@keyframes price-color {
+  from {
+    color: rgb(255, 244, 87);
+  }
+  to {
+    color: rgba(110, 255, 214, 0.767);
+  }
+}
+@keyframes Right {
+  50% {
+    transform: translateX(80vw);
+  }
+}
+@keyframes Left {
+  50% {
+    transform: translateX(-80vw);
+  }
+}
+#cards,
+#boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  max-width: 75vw;
+  margin: 2vw 0vw 0vw 0.5vw;
+}
+
+.card {
+  width: 32vw;
+  height: 19vw;
+  background-color: rgba(32, 32, 32, 0.95);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  position: relative;
+  padding: 2vw;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.card-title {
+  font-family: "Cabin";
+  font-size: 3vw;
+  opacity: 0.9;
+}
+
+.card-info {
+  font-size: 1.6vw;
+  opacity: 0.7;
+}
+
+.card-icon {
+  transition: all 0.25s ease;
+  position: absolute;
+  font-size: 3.6vw;
+  opacity: 0.85;
+  right: 0%;
+  bottom: -5%;
+  padding: 2vw;
+  z-index: 3;
+}
+.card-icon:hover {
+  transform: scale(1.15) translateY(-20px);
+}
+
+.card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.05), transparent 40%);
+  border-radius: inherit;
+  content: "";
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cut-container {
+  width: 65vw;
+  height: 23vw;
+  transition: all 1s ease;
+  display: flex;
+  background-color: rgba(32, 32, 32, 0.95);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  margin: 3vw;
+  border-radius: 1vw;
+  position: relative;
+  cursor: pointer;
+}
+.cut-container img {
+  width: 40vw;
+  height: 100%;
+  transition: all 0.5s ease;
+  border-radius: 1vw 0 0 1vw;
+}
+
+.cut-info {
+  padding: 0.5vw 0vw 0vw 1.4vw;
+}
+.cut-info h1 {
+  font-family: "Cabin";
+  font-size: 3.6vw;
+}
+.cut-info p {
+  font-size: 1.8vw;
+  opacity: 0.7;
+  padding-left: 0.8vw;
+}
+.cut-info h2 {
+  animation: price-color linear;
+  animation-timeline: view();
+  animation-range-start: cover;
+  animation-range-end: 600px;
+  transition: color 5s ease;
+  position: absolute;
+  color: rgba(110, 255, 214, 0.767);
+  font-size: 2.4vw;
+  padding-left: 0.8vw;
+  bottom: 5%;
+}
+
+.cut-container::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5.5vw;
+  height: 100%;
+  z-index: 10;
+  display: block;
+  border-radius: 1vw;
+  content: "";
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  opacity: 0;
+}
+
+.cut-container:hover::before {
+  animation: shine 1.2s;
+}
+
+.box {
+  width: 80vw;
+  height: 45vw;
+  position: relative;
+  transform: rotate(0) skew(5deg) scale(0.8);
+  margin-top: 1.5vw;
+  margin-left: 3vw;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80vw;
+  height: 100%;
+  display: block;
+  background-color: rgba(36, 36, 36, 0.767);
+  transition: 0.5s;
+  box-shadow: -10px 5px 1px rgba(0, 255, 183, 0.427);
+}
+
+.box:hover .layer:nth-child(4) {
+  transform: translate(60px, -60px);
+  opacity: 1;
+}
+.box:hover .layer:nth-child(3) {
+  transform: translate(45px, -45px);
+  opacity: 0.75;
+}
+.box:hover .layer:nth-child(2) {
+  transform: translate(30px, -30px);
+  opacity: 0.5;
+}
+.box:hover .layer:nth-child(1) {
+  transform: translate(15px, -15px);
+  opacity: 0.25;
+}
+
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  width: 80vw;
+  height: 100%;
+  gap: 1.5vw;
+  scroll-margin: 150px;
+}
+#contact h1 {
+  font-family: "Aldrich";
+  font-size: 4vw;
+  transition: all 0.5s ease;
+  opacity: 0.9;
+  cursor: pointer;
+}
+#contact h1:hover {
+  font-size: 4.2vw;
+}
+#contact button {
+  font-family: "Aldrich";
+  font-size: 3vw;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 255, 183, 0.427);
+  padding: 1vw;
+  border-radius: 1vw;
+  cursor: pointer;
+  margin-top: 4vw;
+}
+#contact button:hover {
+  transform: scale(1.06);
+}
+#contact button:active {
+  transform: scale(0.95);
+}
+#contact label {
+  font-family: "Aldrich";
+  font-size: 2vw;
+  opacity: 0.7;
+}
+
+.smallinput {
+  font-family: "Cabin";
+  font-size: 2vw;
+  transition: outline 1s ease;
+  width: 50vw;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 1vw;
+  padding-left: 1vw;
+  outline: none;
+}
+
+#envelope-animation {
+  opacity: 0.7;
+  animation: rotation 3s forwards ease;
+}
+
+.envelope {
+  width: 14vw;
+  height: 14vw;
+  position: absolute;
+  bottom: -198vw;
+  right: 10%;
+  transform-origin: 50% 80%;
+  opacity: 0;
+  transform: rotate(-30deg);
+  z-index: -1;
+  filter: brightness(115%);
+}
+
+.double-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  gap: 0.5vw;
+}
+.double-input input {
+  width: 24vw;
+}
+
+#mapContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+}
+#mapContainer #map {
+  width: 40vw;
+  height: 35vw;
+  opacity: 0.7;
+  position: relative;
+  transition: -webkit-clip-path 1s ease;
+  transition: clip-path 1s ease;
+  transition: clip-path 1s ease, -webkit-clip-path 1s ease;
+  border: solid 1.5vw rgba(0, 255, 183, 0.427);
+  -webkit-clip-path: polygon(93.3% 45%, 20% 100%, 62.7% 33%, 61.7% 65%, 10% 0%, 93.3% 25%);
+          clip-path: polygon(93.3% 45%, 20% 100%, 62.7% 33%, 61.7% 65%, 10% 0%, 93.3% 25%);
+  margin-top: 3vw;
+}
+
+#mapData h1 {
+  font-family: "Cabin";
+  font-size: 3.2vw;
+}
+#mapData h2,
+#mapData h3 {
+  font-family: "Cabin";
+  font-size: 1.5vw;
+  opacity: 0.5;
+  font-weight: 500;
+  margin-left: 1.5vw;
+}
+#mapData h3 {
+  margin-top: 2vw;
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  width: 100vw;
+  height: 10vw;
+  margin-top: 12vw;
+  gap: 0.5vw;
+  background-color: rgb(30, 30, 30);
+  z-index: 20;
+}
+#footer h1,
+#footer h2 {
+  transition: all 0.5s ease;
+  opacity: 0.4;
+  font-weight: 500;
+}
+#footer h1:hover,
+#footer h2:hover {
+  transform: rotateY(15deg) skew(15deg);
+}
+
+#footer-line1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  width: 100vw;
+  height: 10%;
+  gap: 3.3vw;
+  margin-bottom: 1.5vw;
+}
+
+.fa-brands {
+  transition: all 0.5s ease;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.fa-brands:hover {
+  transform: scale(1.15);
+  color: rgba(110, 255, 214, 0.767);
+}
+.fa-brands:active {
+  transform: scale(0.9);
+}
+
+.footer-line {
+  width: 30vw;
+  height: 0.15vw;
+  transition: all 0.5s ease;
+  background-color: rgba(94, 93, 93, 0.7);
+  border-radius: 3svw;
+}
+.footer-line:hover {
+  background-color: rgba(110, 255, 214, 0.767);
+}
+
+#booking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  transition: all 0.2s ease;
+  transform: scale(0.74) translateY(-150px);
+  opacity: 0;
+}
+
+#selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  scroll-margin: 70px;
+}
+
+#currentDateHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  width: 40vw;
+  height: 4vw;
+}
+
+#currentDate {
+  font-family: Cabin;
+  font-size: 3vw;
+}
+
+.arrow {
+  transition: all 0.25s ease;
+  font-size: 3vw;
+  opacity: 0.85;
+  padding-bottom: 2vw;
+  padding-top: 2vw;
+  cursor: pointer;
+}
+.arrow:hover {
+  transform: scale(1.1) translateY(-5px);
+}
+.arrow:active {
+  transform: scale(0.9) translateY(5px);
+}
+
+#columns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  width: 70vw;
+  overflow: hidden;
+  gap: 1vw;
+}
+#columns span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  width: 7vw;
+  font-weight: bold;
+}
+
+.day-date {
+  font-weight: bold;
+}
+.day-date p {
+  font-size: 2vw;
+}
+
+.template-column {
+  position: absolute;
+  opacity: 0;
+  width: 7vw;
+}
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  width: 7vw;
+  margin-bottom: 3vw;
+}
+
+.time-button {
+  transition: transform 0.25s ease;
+  background-color: transparent;
+  border: solid 0.1vw rgba(110, 255, 214, 0.767);
+  border-radius: 1vw;
+  padding: 0.5vw;
+  margin-top: 0.6vw;
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+.time-button:hover {
+  transform: scale(1.05);
+}
+.time-button:active {
+  transform: scale(0.95);
+}
+
+.occupied-button {
+  background-color: rgba(253, 71, 71, 0.781);
+  border: none;
+}
+
+.column-animationr {
+  animation: Right 1s forwards;
+}
+
+.column-animationl {
+  animation: Left 1s forwards;
+}
+
+.appointment {
+  width: 34vw;
+  height: 100vh;
+  transition: all 0.75s ease;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 2vw;
+  background-color: rgba(51, 51, 51, 0.98);
+  position: fixed;
+  top: 0;
+  right: -40%;
+  z-index: 21;
+  padding: 1vw;
+  overflow-y: scroll;
+}
+.appointment::-webkit-scrollbar {
+  width: 0px;
+}
+
+.opened {
+  right: 0%;
+}
+
+#close {
+  font-family: "Cabin";
+  font-size: 1.5vw;
+  transition: color 0.25s ease;
+  width: 30vw;
+  background-color: transparent;
+  border: none;
+  position: relative;
+}
+#close:hover {
+  color: rgba(110, 255, 214, 0.767);
+  cursor: pointer;
+}
+
+#top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  width: 100%;
+  height: 3vw;
+  gap: 3vw;
+}
+
+.progress {
+  display: flex;
+  width: 100vw;
+  gap: 3vw;
+}
+.progress div:nth-child(4) .marker::after {
+  width: 0vw;
+}
+.progress div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  width: 50%;
+}
+.progress div div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  width: 60%;
+}
+.progress div div p {
+  font-family: "Cabin";
+  font-size: 1vw;
+}
+
+.marker {
+  font-family: "Cabin";
+  font-size: 1vw;
+  position: relative;
+  background-color: rgba(128, 128, 128, 0.95);
+  border-radius: 2vw;
+  border: solid rgba(255, 255, 255, 0.05) 0.2vw;
+  width: 1.7vw;
+  height: 1.5vw;
+}
+
+.marker::after {
+  content: " ";
+  position: absolute;
+  background-color: rgba(201, 201, 201, 0.6);
+  left: 105%;
+  height: 0.2vw;
+  top: 50%;
+  width: 4.6vw;
+}
+
+.active {
+  border: solid rgba(110, 255, 214, 0.767) 0.2vw;
+}
+.active::after {
+  background-color: rgba(110, 255, 214, 0.767);
+}
+
+#search-bar {
+  transition: border 0.5s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.5vw;
+  border-radius: 1vw;
+  border: solid transparent 0.2vw;
+}
+
+#search-bar:focus-within,
+#search-bar:hover {
+  border: solid rgba(110, 255, 214, 0.767) 0.2vw;
+}
+
+#search {
+  background-color: transparent;
+  margin-left: 0.8vw;
+  outline: none;
+  border: none;
+}
+
+.service-select {
+  font-size: 3vw;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  width: 100%;
+}
+
+.service {
+  transition: background-color 0.25s ease;
+  position: relative;
+  width: 100%;
+  height: 10vw;
+  padding: 1vw;
+}
+.service h1 {
+  font-family: Aldrich;
+  font-size: 2.5vw;
+}
+.service p, .service h2 {
+  font-family: Cabin;
+  font-size: 1.6vw;
+  opacity: 0.7;
+}
+.service h2 {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  color: rgb(255, 249, 163);
+}
+
+.service:hover {
+  background-color: rgba(0, 255, 183, 0.427);
+  cursor: pointer;
+}
+
+.stylist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  transition: background-color 0.35s ease;
+  width: 95%;
+  height: 3.6vw;
+  padding: 1vw;
+  background-color: transparent;
+  border-radius: 0.3vw;
+  position: relative;
+}
+.stylist img {
+  height: 115%;
+  border-radius: 10vw;
+}
+.stylist span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+}
+.stylist span h1 {
+  font-size: 2.2vw;
+  position: absolute;
+  left: 20%;
+}
+.stylist span i {
+  transition: all 0.4s ease;
+  font-size: 2vw;
+  position: absolute;
+  right: 5%;
+}
+.stylist span i:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+.stylist:hover {
+  background-color: rgba(0, 255, 183, 0.427);
+  cursor: pointer;
+}
+
+.service-current {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  gap: 8vw;
+  width: 95%;
+  height: 3vw;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1vw;
+  border-radius: 1vw;
+}
+.service-current h1 {
+  font-family: Cabin;
+  font-size: 1.8vw;
+}
+.service-current h2 {
+  font-family: Cabin;
+  font-size: 1.3vw;
+  transition: all 0.3s ease;
+  color: rgba(255, 210, 126, 0.733);
+}
+.service-current h2:hover {
+  cursor: pointer;
+  color: rgba(255, 210, 126, 0.9);
+}
+.service-current div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  height: 100%;
+  width: 100%;
+}
+.service-current div img {
+  height: 115%;
+  border-radius: 10vw;
+  margin-right: 1vw;
+}
+
+#content form {
+  width: 30vw;
+  height: 30vw;
+}
+
+#policy {
+  font-family: Cabin;
+  font-size: 1.3vw;
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+#final-price {
+  font-family: Cabin;
+  font-size: 2.2vw;
+  color: rgba(110, 255, 214, 0.767);
+}
+
+#buy-button {
+  transition: all 0.25s ease;
+  margin-top: 1vw;
+}
+#buy-button:hover {
+  background-color: rgb(68, 87, 23);
+  cursor: pointer;
+  transform: scale(1.04);
+}
+
+#mainContainer,
+#homeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  width: 100vw;
+  height: 100%;
+}
+
+#imageContainer {
+  width: 75vw;
+  height: 40vw;
+  position: relative;
+  border: 3px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 5px 5px 7px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 2vw 0 3vw 0;
+}
+
+#gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.431), rgba(0, 255, 183, 0.427));
+  z-index: 2;
+}
+
+#mainImage {
+  width: 100%;
+  height: 100%;
+  transition: all 0.9s ease;
+  transform-origin: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#appointmentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  gap: 2vw;
+}
+
+.line {
+  width: 40vw;
+  height: 0.2vw;
+  background-color: rgba(110, 255, 214, 0.767);
+  border-radius: 1vw;
+}
+
+#appointment-btn,
+#buy-button {
+  font-family: "Cabin";
+  font-size: 3vw;
+  transition: all 0.3s ease;
+  background: linear-gradient(rgba(0, 255, 183, 0.427), rgba(110, 255, 214, 0.767));
+  padding: 1vw;
+  border-radius: 1vw;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 0px 50px rgba(0, 255, 183, 0.427);
+}
+#appointment-btn:active,
+#buy-button:active {
+  transform: scale(0.95);
+}
+
+#stylistsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  width: 80vw;
+  height: 72vw;
+  flex-wrap: wrap;
+  gap: 2.5vw;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  scroll-margin: 7vw;
+}
+
+.stylist-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 19vw;
+  height: 21vw;
+  transform: skewX(-2deg);
+  transition: all 0.4s ease;
+  background-color: rgba(158, 158, 158, 0.15);
+  border: solid 2px transparent;
+  padding: 0.75vw;
+  border-radius: 0.7vw;
+}
+.stylist-box img {
+  width: 12vw;
+  height: 12vw;
+  border-radius: 1vw;
+}
+.stylist-box:hover {
+  transform: scale(1.03) skewX(0deg) translateY(-15px);
+  border: solid 1.5px rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+.stylist-box h1 {
+  font-family: Aldrich;
+  font-size: 2vw;
+  margin-top: 0.5vw;
+}
+.stylist-box p {
+  font-family: Cabin;
+  font-size: 1.2vw;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  background-color: rgba(12, 12, 12, 0.95);
+  overflow-x: hidden;
+}
+
+#circle1,
+#circle2,
+#circle3,
+#circle4 {
+  width: 55vw;
+  height: 55vw;
+  background-color: rgba(0, 255, 183, 0.427);
+  border-radius: 500vw;
+  position: absolute;
+  left: -20%;
+  z-index: -2;
+  opacity: 0.3;
+  box-shadow: 0px 0px 500px rgba(0, 255, 183, 0.427);
+}
+
+#circle2 {
+  left: 90%;
+  bottom: -250vw;
+}
+
+#circle3 {
+  width: 40vw;
+  height: 40vw;
+  left: -30%;
+  bottom: -315vw;
+}
+
+#circle4 {
+  width: 40vw;
+  height: 40vw;
+  left: 80%;
+  bottom: -70vw;
+}
+
+#character {
+  animation: character-move linear;
+  animation-timeline: view();
+  animation-range-start: cover;
+  animation-range-end: 600px;
+  width: 27vw;
+  height: 38vw;
+  transform: rotateZ(30deg);
+  position: absolute;
+  bottom: -265vw;
+  opacity: 0.7;
+  left: -12%;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    width: 75vw;
+  }
+  .cut-container {
+    width: 75vw;
+    height: 25vw;
+  }
+  .cut-container p {
+    font-size: 2.2vw;
+  }
+  #circle2 {
+    bottom: -50%;
+  }
+  #character {
+    animation: character-move2 linear;
+    animation-timeline: view();
+    animation-range-start: cover;
+    animation-range-end: 600px;
+    bottom: -60%;
+  }
+}/*# sourceMappingURL=index.css.map */
