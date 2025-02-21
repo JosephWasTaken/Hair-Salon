@@ -4,9 +4,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const app = express()
 
-const stripe = require('stripe')(
-  'sk_test_51QgsuACom5u3vg50gLpkn4XMdTKgcPSlDvZ2TVaHBcf1z3LF5s7hUcDCURG9b7IgIHlJyoqcCLhjWdqpejvAjyfl000ZNmcG90'
-)
+const stripe = require('stripe')('')
 
 app.use(bp.json())
 app.use(bp.urlencoded({ extended: false }))
